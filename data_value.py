@@ -15,4 +15,5 @@ df['人次'] = 1
 a = df.drop_duplicates()
 print(df.info())
 print(a.info())
+print(a)
 
