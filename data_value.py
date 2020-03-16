@@ -11,9 +11,9 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv('place_2.csv')
-df['人次'] = 1
-a = df.drop_duplicates()
-print(df.info())
-print(a.info())
-print(a)
+df = pd.DataFrame(df)
+df['num'] = 1
+
+result = df.groupby('小区名称')['num'].sum().sort_values(ascending=False)
+print(result)
 
