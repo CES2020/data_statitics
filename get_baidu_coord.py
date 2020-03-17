@@ -31,6 +31,10 @@ def get_locate(data_in, file_out):
     data_in 为列表
     file_out 为文件对象
     """
+    urlList = []
+    if (data_in.find('"') != -1):
+        data_in = data_in.replace('"', '')
+    data_in = data_in.split('\n')
     for index in range(len(data_in)):
         line = data_in[index]
         address = line
@@ -48,6 +52,9 @@ def get_locate(data_in, file_out):
         if address == '科大一号院':
             coords['lng'] = 113.00650
             coords['lat'] = 28.23198
+        if address == '德雅村':
+            coords['lng'] = 113.00695
+            coords['lat'] = 28.226018
 
         out_loc = '\'' + address + '\'' + ':[' + str(round(coords['lng'], 5)) + ',' + str(
             round(coords['lat'], 5)) + '], \n'
@@ -55,20 +62,25 @@ def get_locate(data_in, file_out):
 
 if __name__ == "__main__":
     # 地址输入，一行一个地址
-    f = io.open('place_dup.csv', 'r', encoding='utf-8')
-    data = f.read()
-    f.close()
+    f_nudt = io.open('place_dup.csv', 'r', encoding='utf-8')
+    data = f_nudt.read()
+    f_nudt.close()
 
     # 输出文档
-    f_out = open('loc.txt', 'r+')
-    f_out.truncate(0)
+    f_nudt_out = open('loc.txt', 'r+')
 
-    urlList = []
-    if (data.find('"') != -1):
-        data = data.replace('"', '')
-    datas = data.split('\n')
+    f_nudt_out.truncate(0)
+    get_locate(data, f_nudt_out)
+    f_nudt_out.close()
 
-    # print(datas)
-    get_locate(datas, f_out)
+    # # 长沙确诊小区地址
+    # f_cs = io.open('CS_postive_name.txt', 'r', encoding='utf-8')
+    # data_cs = f_cs.read()
+    # f_cs.close()
+    #
+    # f_cs_out = open('CS_postive_loc.txt', 'r+')
+    # f_cs_out.truncate(0)
+    # get_locate(data_cs, f_cs_out)
+    # f_cs_out.close()
 
 
