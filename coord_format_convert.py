@@ -3,7 +3,8 @@
 """ 
 @author:yaoli 
 @file: coord_format_convert.py 
-@time: 2020/03/16 
+@time: 2020/03/16
+将 Excel 表里的坐标数据转换格式
 """
 
 import pandas as pd

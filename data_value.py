@@ -5,13 +5,12 @@
 @file: data_value.py 
 @time: 2020/03/16 
 """
-
 import pandas as pd
 import numpy as np
 
 df = pd.read_csv('place_2.csv')
 df = pd.DataFrame(df)
-a = df.drop_duplicates()
+# a = df.drop_duplicates()
 # print(df.info())
 # print(a.info())
 # a.to_csv('place_dup.csv', index=False, header=False)
