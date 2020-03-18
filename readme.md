@@ -14,8 +14,9 @@
 ## 文件说明
 1. place_2.csv 按照上述原则修改后的数据
 2. place_dup.csv 为去重后的小区数据
-3. name_value.json 为 groupby 处理后的转格式 name 对应 value 文件
-
+3. name_value.txt 为 groupby 处理后的转格式 name 对应 value 文件
+4. crawler_demo.py 是对 get_baidu.coord 代码精简的最基础版本（不需要文件输入输出），以后留用。
+5. get_baidu_coord.py 是本 repo 使用的使用百度地图 API 进行地理编码。
 
 ## 其他
 1. Windows csv 文件默认打开方式是 Excel，而Excel处理csv如果有中文会显示乱码，请用编辑器打开。
